@@ -4,7 +4,7 @@
 package mystack;
 
 /**
- * @author ADD YOUR NAME 
+ * @author Jack Egan
  *
  */
 
@@ -33,12 +33,13 @@ public class MyStack<T> {
 	}
 
 	public T pop() {
-		// TODO To complete
-		return null;
+		T popVal = theStack.val;
+		theStack = theStack.next;
+		return popVal;
 	}
 
 	public void push(T v) {
-		// TODO To complete
+		theStack = new MyNode<T>(v, theStack);
 	}
 
 	
@@ -48,14 +49,22 @@ public class MyStack<T> {
 	public static void main(String[] args) {
 		// TODO To complete
 		// Create a stack of Integer
+		MyStack<Integer> integerStack = new MyStack<Integer>();
 		// Push 1 and 2
+		integerStack.push(Integer.valueOf(1));
+		integerStack.push(Integer.valueOf(2));
 		// Pop
+		integerStack.pop();
 		// Push 5
+		integerStack.push(Integer.valueOf(5));
 		
 		// TODO To complete
 		// Create a stack of Person
+		MyStack<Person> personStack = new MyStack<Person>();
 		// Push a person p1 with your name
+		personStack.push(new Person("Jack", "Egan"));
 		// Push a person p2 with my name
+		personStack.push(new Person("Christelle", "Scharff"));
 	}
 
 }

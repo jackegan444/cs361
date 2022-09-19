@@ -3,14 +3,16 @@
  */
 package circle;
 
+import edu.colrado.geometry.Location;
+
 /**
- * @author ADD YOUR NAME
+ * @author Jack Egan
  *
  */
 
 // TODO Complete the code
 
-public class Circle extends GraphicObject {
+public class Circle extends GraphicObject implements Cloneable {
 
 	// No use of encapsulation
 	public double centerX, centerY;
@@ -52,6 +54,8 @@ public class Circle extends GraphicObject {
 
 	@Override
 	void moveTo(int newX, int newY) {
+		this.centerX = newX;
+		this.centerY = newY;
 	}
 
 	// TODO To complete
@@ -60,7 +64,7 @@ public class Circle extends GraphicObject {
 	 */
 	@Override
 	public String toString() {
-		return super.toString();
+		return "Circle: centerX = " + centerX + " centerY = " + centerY + " radius = " + radius;
 	}
 
 	// TODO To complete
@@ -71,16 +75,22 @@ public class Circle extends GraphicObject {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		return super.equals(obj);
+		if (obj instanceof Circle) {
+			Circle circle = (Circle) obj;
+			return this.centerX == circle.centerX && this.centerY == circle.centerY
+	 				&& this.radius == circle.radius;
+		} else {
+			return false;
+		}
 	}
 
 	// TODO To complete
 	/**
 	 * @return an exact copy of the Circle that is a new instance 
 	 */
-	// @Override
-	// protected Object clone() throws CloneNotSupportedException {
-	// return super.clone();
-	// }
+	 @Override
+	 protected Object clone() throws CloneNotSupportedException {
+		 return super.clone();
+	 }
 
 }
